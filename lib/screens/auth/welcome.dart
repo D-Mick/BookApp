@@ -1,3 +1,5 @@
+import 'package:book_app/screens/auth/login.dart';
+import 'package:book_app/screens/auth/register.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -48,6 +50,7 @@ class Welcome extends StatelessWidget {
                 children: [
                   MaterialButton(
                     onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
                     },
                     padding: EdgeInsets.symmetric(
                         vertical: 20,
@@ -72,6 +75,7 @@ class Welcome extends StatelessWidget {
                   ),
                   MaterialButton(
                     onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => Register()));
                     },
                     color: Color(0xff2c2d37),
                     padding: EdgeInsets.symmetric(
