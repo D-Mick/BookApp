@@ -5,6 +5,7 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
@@ -25,6 +26,7 @@ class Login extends StatelessWidget {
         height: MediaQuery.of(context).size.height,
         width: double.infinity,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
               children: [
@@ -38,9 +40,6 @@ class Login extends StatelessWidget {
                         color: Colors.black
                       ),
                     ),
-                    SizedBox(
-                      height: 20,
-                    ),
                     Text(
                       'Login to your account',
                       style: TextStyle(
@@ -50,6 +49,9 @@ class Login extends StatelessWidget {
                     ),
                   ],
                 ),
+                SizedBox(
+                  height: 20,
+                ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 40),
                   child: Column(
@@ -57,8 +59,8 @@ class Login extends StatelessWidget {
                       Container(
                         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                         decoration: BoxDecoration(
-
-                          borderRadius: BorderRadius.all(Radius.circular(20))
+                          borderRadius: BorderRadius.all(Radius.circular(20)),
+                            color: Colors.grey.shade100
                         ),
                         child: TextField(
                           decoration: InputDecoration(
@@ -74,17 +76,66 @@ class Login extends StatelessWidget {
                       Container(
                         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(20))
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                          color: Colors.grey.shade100
                         ),
                         child: TextField(
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             hintText: 'Password',
-                            fillColor: Colors.grey.shade700,
+                            fillColor: Colors.grey,
                           ),
                         ),
-                      )
+                      ),
                     ],
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                MaterialButton(
+                  onPressed: () {
+                  },
+                  color: Color(0xff2c2d37),
+                  padding: EdgeInsets.symmetric(
+                      vertical: 20,
+                      horizontal: 110
+                  ),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)
+                  ),
+                  child: Text(
+                    'Login',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                        "Don't have an account yet?"
+                    ),
+                    Text(
+                      "Sign up",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600
+                      ),
+                    )
+                  ],
+                ),
+                Container(
+                  height: MediaQuery.of(context).size.height / 2,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/image/login.png'),
+                        fit: BoxFit.cover
+                      )
                   ),
                 )
               ],
