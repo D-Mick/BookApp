@@ -1,3 +1,4 @@
+import 'package:book_app/animations/fadeAnimation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -32,21 +33,21 @@ class Login extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    Text(
+                    FadeAnimation(1, Text(
                       'Login',
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.bold,
                         color: Colors.black
                       ),
-                    ),
-                    Text(
+                    )),
+                    FadeAnimation(1.2, Text(
                       'Login to your account',
                       style: TextStyle(
                           fontSize: 15,
                          color: Colors.grey.shade700
                       ),
-                    ),
+                    )),
                   ],
                 ),
                 SizedBox(
@@ -56,7 +57,7 @@ class Login extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: 40),
                   child: Column(
                     children: [
-                      Container(
+                      FadeAnimation(1.2, Container(
                         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -69,11 +70,11 @@ class Login extends StatelessWidget {
                             fillColor: Colors.grey.shade700,
                           ),
                         ),
-                      ),
+                      )),
                       SizedBox(
                         height: 20,
                       ),
-                      Container(
+                      FadeAnimation(1.2, Container(
                         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -86,14 +87,14 @@ class Login extends StatelessWidget {
                             fillColor: Colors.grey,
                           ),
                         ),
-                      ),
+                      )),
                     ],
                   ),
                 ),
                 SizedBox(
                   height: 20,
                 ),
-                MaterialButton(
+                FadeAnimation(1.4, MaterialButton(
                   onPressed: () {
                   },
                   color: Color(0xff2c2d37),
@@ -111,11 +112,11 @@ class Login extends StatelessWidget {
                         color: Colors.white
                     ),
                   ),
-                ),
+                )),
                 SizedBox(
                   height: 10,
                 ),
-                Row(
+                FadeAnimation(1.5, Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
@@ -128,8 +129,8 @@ class Login extends StatelessWidget {
                       ),
                     )
                   ],
-                ),
-                Container(
+                )),
+                FadeAnimation(1.2, Container(
                   height: MediaQuery.of(context).size.height / 2,
                   decoration: BoxDecoration(
                       image: DecorationImage(
@@ -137,7 +138,7 @@ class Login extends StatelessWidget {
                         fit: BoxFit.cover
                       )
                   ),
-                )
+                ))
               ],
             ),
           ],

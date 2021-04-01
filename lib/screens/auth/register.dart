@@ -1,3 +1,4 @@
+import 'package:book_app/animations/fadeAnimation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -32,27 +33,27 @@ class Register extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    Text(
+                    FadeAnimation(1, Text(
                       'Sign up',
                       style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
                           color: Colors.black
                       ),
-                    ),
-                    Text(
+                    )),
+                    FadeAnimation(1.2, Text(
                       "Create an account, it's free",
                       style: TextStyle(
                           fontSize: 15,
                           color: Colors.grey.shade700
                       ),
-                    ),
+                    )),
                   ],
                 ),
                 SizedBox(
                   height: 20,
                 ),
-                Padding(
+                FadeAnimation(1.2, Padding(
                   padding: EdgeInsets.symmetric(horizontal: 40),
                   child: Column(
                     children: [
@@ -123,11 +124,11 @@ class Register extends StatelessWidget {
                       ),
                     ],
                   ),
-                ),
+                )),
                 SizedBox(
                   height: 20,
                 ),
-                MaterialButton(
+                FadeAnimation(1.5, MaterialButton(
                   onPressed: () {
                   },
                   color: Color(0xff2c2d37),
@@ -145,11 +146,11 @@ class Register extends StatelessWidget {
                         color: Colors.white
                     ),
                   ),
-                ),
+                )),
                 SizedBox(
                   height: 10,
                 ),
-                Row(
+                FadeAnimation(1.2, Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
@@ -162,7 +163,7 @@ class Register extends StatelessWidget {
                       ),
                     )
                   ],
-                ),
+                )),
               ],
             ),
           ],

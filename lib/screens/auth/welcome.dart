@@ -1,3 +1,4 @@
+import 'package:book_app/animations/fadeAnimation.dart';
 import 'package:book_app/screens/auth/login.dart';
 import 'package:book_app/screens/auth/register.dart';
 import 'package:flutter/material.dart';
@@ -18,37 +19,37 @@ class Welcome extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  Text(
+                  FadeAnimation(1, Text(
                     'Welcome',
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold
                     ),
-                  ),
+                  )),
                   SizedBox(
                     height: 20,
                   ),
-                  Text(
+                  FadeAnimation(1.2, Text(
                     'Automatic identity verification which enables you to verify your identity',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontSize: 15,
                         color: Colors.grey.shade700
                     ),
-                  ),
+                  )),
                 ],
               ),
-              Container(
+              FadeAnimation(1.4, Container(
                 height: MediaQuery.of(context).size.height / 3,
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage('assets/image/welcome.png')
                   )
                 ),
-              ),
+              )),
               Column(
                 children: [
-                  MaterialButton(
+                  FadeAnimation(1.5, MaterialButton(
                     onPressed: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
                     },
@@ -69,11 +70,11 @@ class Welcome extends StatelessWidget {
                           color: Color(0xff2c2d37),
                       ),
                     ),
-                  ),
+                  )),
                   SizedBox(
                     height: 20,
                   ),
-                  MaterialButton(
+                  FadeAnimation(1.5, MaterialButton(
                     onPressed: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => Register()));
                     },
@@ -92,7 +93,7 @@ class Welcome extends StatelessWidget {
                           color: Colors.white
                       ),
                     ),
-                  ),
+                  )),
                 ],
               )
             ],
