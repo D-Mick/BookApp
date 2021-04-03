@@ -1,3 +1,4 @@
+import 'package:book_app/animations/fadeAnimation.dart';
 import 'package:book_app/screens/walkthrough/second_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,27 +18,27 @@ class onBoardingPage extends StatelessWidget {
               SizedBox(
                 height: 120,
               ),
-              Lottie.asset('assets/lottie/screen.json'),
+              FadeAnimation(1,Lottie.asset('assets/lottie/screen.json')),
               SizedBox(
                 height: 30,
               ),
-              Text(
+              FadeAnimation(1.2,Text(
                 'Hello',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                     color: Colors.black
                 ),
-              ),
+              )),
               SizedBox(
                 height: 20,
               ),
-              Text(
+              FadeAnimation(1.2,Text(
                 text1,
                 textAlign: TextAlign.center,
-              ),
+              )),
               SizedBox(height: 50,),
-              MaterialButton(
+              FadeAnimation(1.4, MaterialButton(
                 onPressed: () {
                   Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SecondPage()));
                 },
@@ -56,7 +57,7 @@ class onBoardingPage extends StatelessWidget {
                     color: Colors.white
                   ),
                 ),
-              ),
+              )),
             ],
           ),
         ),

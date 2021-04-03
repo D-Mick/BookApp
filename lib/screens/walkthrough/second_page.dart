@@ -1,3 +1,4 @@
+import 'package:book_app/animations/fadeAnimation.dart';
 import 'package:book_app/screens/auth/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
@@ -19,7 +20,7 @@ class SecondPage extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              Row(
+              FadeAnimation(1, Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   InkWell(
@@ -30,38 +31,38 @@ class SecondPage extends StatelessWidget {
                     ),
                   )
                 ],
-              ),
+              )),
               SizedBox(
                 height: 120,
               ),
-              Center(
+              FadeAnimation(1, Center(
                 child: Lottie.asset(
                   'assets/lottie/secondScreen.json',
                 ),
-              ),
+              )),
               SizedBox(
                 height: 50,
               ),
-              Text(
+              FadeAnimation(1.2,Text(
                 "Meet",
                 style: TextStyle(
                   fontSize: 30,
                 ),
-              ),
+              )),
               SizedBox(
                 height: 5,
               ),
-              Text(
+              FadeAnimation(1.2, Text(
                 'Book Library',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 30.0
                 ),
-              ),
+              )),
               SizedBox(
                 height: 20,
               ),
-              Row(
+              FadeAnimation(1.4, Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
@@ -93,7 +94,7 @@ class SecondPage extends StatelessWidget {
                     ),
                   )
                 ],
-              )
+              ))
             ],
           ),
         ),

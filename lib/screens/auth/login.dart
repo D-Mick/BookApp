@@ -1,4 +1,5 @@
 import 'package:book_app/animations/fadeAnimation.dart';
+import 'package:book_app/screens/home/home_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -96,6 +97,7 @@ class Login extends StatelessWidget {
                 ),
                 FadeAnimation(1.4, MaterialButton(
                   onPressed: () {
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
                   },
                   color: Color(0xff2c2d37),
                   padding: EdgeInsets.symmetric(
