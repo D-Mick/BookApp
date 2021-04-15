@@ -1,12 +1,11 @@
-import 'package:book_app/animations/fadeAnimation.dart';
 import 'package:flutter/material.dart';
 
-class Ebook extends StatefulWidget {
+class EbookPage extends StatefulWidget {
   @override
-  _EbookState createState() => _EbookState();
+  _EbookPageState createState() => _EbookPageState();
 }
 
-class _EbookState extends State<Ebook> {
+class _EbookPageState extends State<EbookPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,4 +40,3 @@ class _EbookState extends State<Ebook> {
     );
   }
 }
-

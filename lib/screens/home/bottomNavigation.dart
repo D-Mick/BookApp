@@ -1,5 +1,8 @@
 import 'package:book_app/animations/fadeAnimation.dart';
+import 'package:book_app/screens/home/audiobook_page.dart';
+import 'package:book_app/screens/home/ebook_page.dart';
 import 'package:book_app/screens/home/home_page.dart';
+import 'package:book_app/screens/home/profile_page.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -42,28 +45,18 @@ class _HomePageState extends State<HomePage> {
             Container(
                 color: Colors.white,
                 child: Ebook(),
-                // child: Row(
-                //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //     children: [
-                //       Text(
-                //         'Hey Micheal 👋',
-                //         style: TextStyle(
-                //             fontWeight: FontWeight.bold, fontSize: 25),
-                //       ),
-                //       CircleAvatar(
-                //         backgroundImage: AssetImage('assets/image/login.png'),
-                //         radius: 25,
-                //       )
-                //     ])
             ),
             Container(
               color: Colors.white,
+              child: EbookPage(),
             ),
             Container(
               color: Colors.white,
+              child: AudioBookPage(),
             ),
             Container(
               color: Colors.white,
+              child: ProfilePage(),
             ),
           ],
         ),
