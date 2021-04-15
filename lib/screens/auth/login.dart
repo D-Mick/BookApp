@@ -1,5 +1,5 @@
 import 'package:book_app/animations/fadeAnimation.dart';
-import 'package:book_app/screens/home/home_page.dart';
+import 'package:book_app/screens/home/bottomNavigation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

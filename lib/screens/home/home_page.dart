@@ -1,57 +1,109 @@
 import 'package:book_app/animations/fadeAnimation.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-class HomePage extends StatelessWidget {
+class Ebook extends StatefulWidget {
+  @override
+  _EbookState createState() => _EbookState();
+}
+
+class _EbookState extends State<Ebook> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            FadeAnimation(1, Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Hey Micheal 👋',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 25
+        child: Container(
+          color: Colors.white,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Hey Micheal 👋',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 25
+                      ),
                     ),
-                  ),
-                  CircleAvatar(
-                    backgroundImage: AssetImage('assets/image/login.png'),
-                    radius: 30,
-                  )
-                ],
-              ),
-            )),
-            FadeAnimation(1.2,Column(
-              children: [
-                BottomNavigationBar(
-                  items: const <BottomNavigationBarItem>[
-                    BottomNavigationBarItem(
-                      icon: Icon(Icons.home),
-                      label: 'Home',
-                    ),
-                    BottomNavigationBarItem(
-                      icon: Icon(Icons.business),
-                      label: 'Business',
-                    ),
-                    BottomNavigationBarItem(
-                      icon: Icon(Icons.school),
-                      label: 'School',
-                    ),
+                    CircleAvatar(
+                      backgroundImage: AssetImage('assets/image/login.png'),
+                      radius: 25,
+                    )
                   ],
-                )
-              ],
-            ))
-          ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
 }
+
+// class BottomNavItem extends StatelessWidget {
+//   final Function onTap;
+//   final Color color;
+//   final String iconPath;
+//
+//   BottomNavItem({this.onTap, this.color, this.iconPath});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Expanded(
+//       child: InkWell(
+//         onTap: onTap,
+//         borderRadius: BorderRadius.circular(12),
+//         child: Padding(
+//           padding: EdgeInsets.all(5.0),
+//           child: Image.asset(
+//             '$iconPath',
+//             color: color,
+//           )
+//         ),
+//       ),
+//     );
+//   }
+// }
+//
+// Expanded(
+// child: Padding(
+// padding: EdgeInsets.only(bottom: 0),
+// child: screens[_currentPage],
+// ),
+// ),
+// Material(
+// color: Colors.white,
+// shape: RoundedRectangleBorder(
+// borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
+// ),
+// elevation: 13,
+// child: Container(
+// padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+// child: Row(
+// children: [
+// BottomNavItem(
+// color: (_currentPage == 0) ? colorBlack : colorIconInactive,
+// iconPath: "assets/image/home.png",
+// onTap: () => changePage(0),
+// ),
+// BottomNavItem(
+// color: (_currentPage == 1) ? colorBlack : colorIconInactive,
+// iconPath: "assets/image/home.png",
+// onTap: () => changePage(1),
+// ),
+// BottomNavItem(
+// color: (_currentPage == 1) ? colorBlack : colorIconInactive,
+// iconPath: "assets/image/home.png",
+// onTap: () => changePage(1),
+// ),
+// BottomNavItem(
+// color: (_currentPage == 1) ? colorBlack : colorIconInactive,
+// iconPath: "assets/image/home.png",
+// onTap: () => changePage(1),
+// ),
+// ],
+// ),
+// ),
+// ),

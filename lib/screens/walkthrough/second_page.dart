@@ -3,7 +3,7 @@ import 'package:book_app/screens/auth/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-import '../home/home_page.dart';
+import '../home/bottomNavigation.dart';
 import 'on_boarding_page.dart';
 
 class SecondPage extends StatelessWidget {
