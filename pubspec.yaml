@@ -35,6 +35,9 @@ dependencies:
   simple_animations: ^1.3.3
   bottom_navy_bar: ^6.0.0
   http: ^0.12.2
+  firebase_auth: ^0.16.0
+  cloud_firestore: ^0.13.5
+  modal_progress_hud: ^0.1.3
 
 dev_dependencies:
   flutter_test:

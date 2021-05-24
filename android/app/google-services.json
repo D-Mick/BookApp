@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "294966712988",
+    "project_id": "book-app-70a6d",
+    "storage_bucket": "book-app-70a6d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:294966712988:android:2e1c69705734d2cabc2b59",
+        "android_client_info": {
+          "package_name": "com.durotimijohnson.book_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "294966712988-tvdtvoe67msslkv064rkor6jjqqpdmqp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAI9ud3g0h6QSL2es6rToIGBMbzUI12RYY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "294966712988-tvdtvoe67msslkv064rkor6jjqqpdmqp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
