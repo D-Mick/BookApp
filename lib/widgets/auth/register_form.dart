@@ -187,7 +187,8 @@ class _RegisterFormState extends State<RegisterForm> {
                         authResult = await _auth.createUserWithEmailAndPassword(email: _email, password: _password);
                         await _firestore.collection('users').document(authResult.user.uid).setData({
                           'firstname':_firstName,
-                          'lastname' : _lastName
+                          'lastname' : _lastName,
+                          'uid' : authResult.user.uid,
                         });
                         if(authResult !=null){
                           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
