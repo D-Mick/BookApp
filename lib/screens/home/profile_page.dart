@@ -14,8 +14,8 @@ class _ProfilePageState extends State<ProfilePage> {
   final _fireStore = Firestore.instance;
   final _auth = FirebaseAuth.instance;
   FirebaseUser loggedInUser;
-  String firstname;
-  String lastname;
+  String firstname = "john";
+  String lastname = "doe";
 
   @override
   void initState() {
@@ -26,16 +26,13 @@ class _ProfilePageState extends State<ProfilePage> {
   _getCurrentUser() async {
     try {
       loggedInUser = await _auth.currentUser();
-
       if (loggedInUser != null) {
-        await _fireStore
+        var ds = await _fireStore
             .collection('users')
             .document(loggedInUser.uid)
-            .get()
-            .then((ds) {
-          firstname = ds.data['firstname'];
-          lastname = ds.data['lastname'];
-        });
+            .get();
+        firstname = ds.data['firstname'];
+        lastname = ds.data['lastname'];
         print(firstname);
         print(lastname);
       }
@@ -92,7 +89,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.done)
                     return Text(
-                      "$firstname ${loggedInUser.email}",
+                      "$firstname $lastname",
                       style: TextStyle(
                           color: Colors.black,
                           fontSize: 32.0,
