@@ -1,8 +1,8 @@
+import 'package:book_app/widgets/profile/user_image_picker_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -77,10 +77,11 @@ class _ProfilePageState extends State<ProfilePage> {
               SizedBox(
                 height: 120,
               ),
-              CircleAvatar(
-                backgroundImage: AssetImage('assets/image/login.png'),
-                radius: 75,
-              ),
+              UserImagePickerWidget(),
+              // CircleAvatar(
+              //   backgroundImage: AssetImage('assets/image/login.png'),
+              //   radius: 75,
+              // ),
               SizedBox(
                 height: 15.0,
               ),
