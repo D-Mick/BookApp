@@ -1,5 +1,6 @@
 import 'package:book_app/animations/fadeAnimation.dart';
 import 'package:book_app/screens/auth/welcome.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
@@ -35,11 +36,13 @@ class SecondPage extends StatelessWidget {
               SizedBox(
                 height: 120,
               ),
-              FadeAnimation(1, Center(
-                child: Lottie.asset(
-                  'assets/lottie/secondScreen.json',
-                ),
-              )),
+              Expanded(
+                child: FadeAnimation(1, Center(
+                  child: Lottie.asset(
+                    'assets/lottie/secondScreen.json',
+                  ),
+                )),
+              ),
               SizedBox(
                 height: 50,
               ),
@@ -62,39 +65,42 @@ class SecondPage extends StatelessWidget {
               SizedBox(
                 height: 20,
               ),
-              FadeAnimation(1.4, Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    text2,
-                    style: TextStyle(
-                      height: 1.4
-                    ),
-                  ),
-                  Hero(
-                    tag: 'button',
-                    child: MaterialButton(
-                      minWidth: 50,
-                      onPressed: (){
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Welcome()));
-                      },
-                      color: Color(0xff2c2d37),
-                      padding: EdgeInsets.symmetric(
-                        vertical: 15,
-                        horizontal: 15,
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Icon(
-                        Icons.chevron_right,
-                        size: 30,
-                        color: Colors.white,
+              Container(
+                padding: EdgeInsets.only(bottom: 8.0),
+                child: FadeAnimation(1.4, Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      text2,
+                      style: TextStyle(
+                        height: 1.4
                       ),
                     ),
-                  )
-                ],
-              ))
+                    Hero(
+                      tag: 'button',
+                      child: MaterialButton(
+                        minWidth: 50,
+                        onPressed: (){
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Welcome()));
+                        },
+                        color: Color(0xff2c2d37),
+                        padding: EdgeInsets.symmetric(
+                          vertical: 15,
+                          horizontal: 15,
+                        ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Icon(
+                          Icons.chevron_right,
+                          size: 30,
+                          color: Colors.white,
+                        ),
+                      ),
+                    )
+                  ],
+                )),
+              )
             ],
           ),
         ),

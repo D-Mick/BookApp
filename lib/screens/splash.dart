@@ -1,3 +1,5 @@
+import 'package:book_app/screens/home/bottomNavigation.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'walkthrough/on_boarding_page.dart';
@@ -9,23 +11,34 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
-  @override
-  void initState() {
-    //  set time to load the new page
-    Future.delayed(
-        Duration(seconds: 4),
-            () {
-          Navigator.pushReplacement(
-              context, MaterialPageRoute(builder: (context) => onBoardingPage()));
-        });
-    super.initState();
+
+  Future<bool> isLoggedIn() async {
+    var x = FirebaseAuth.instance;
+    if(await x.currentUser() != null) {
+      return true;
+    }
+    return false;
   }
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Lottie.asset('assets/lottie/splash.json'),
+      body: FutureBuilder(
+        future: isLoggedIn(),
+        builder: (context, snapshot) {
+          if(snapshot.connectionState == ConnectionState.done) {
+            if(snapshot.data == true) {
+              return  HomePage();
+            } else {
+              return OnBoardingPage();
+            }
+          }
+            return Center(
+              child: Lottie.asset('assets/lottie/splash.json'),
+            );
+
+        },
       ),
     );
   }

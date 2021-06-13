@@ -25,12 +25,12 @@ class _ProfilePageState extends State<ProfilePage> {
 
   _getCurrentUser() async {
     try {
-      final user = await _auth.currentUser();
-      if (user != null) {
-        loggedInUser = user;
+      loggedInUser = await _auth.currentUser();
+
+      if (loggedInUser != null) {
         await _fireStore
             .collection('users')
-            .document(user.uid)
+            .document(loggedInUser.uid)
             .get()
             .then((ds) {
           firstname = ds.data['firstname'];
@@ -87,26 +87,19 @@ class _ProfilePageState extends State<ProfilePage> {
               SizedBox(
                 height: 15.0,
               ),
-              // Text(
-              //   'Micheal Johnson',
-              //   style: TextStyle(
-              //     color: Colors.black,
-              //     fontSize: 32.0,
-              //     fontWeight: FontWeight.bold
-              //   ),
-              // ),
               FutureBuilder(
                 future: _getCurrentUser(),
                 builder: (context, snapshot) {
-                  if (snapshot.connectionState != ConnectionState.done)
-                    return Text('Loading data....Please wait');
-                  return Text(
-                    "$firstname $lastname",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 32.0,
-                        fontWeight: FontWeight.bold),
-                  );
+                  if (snapshot.connectionState == ConnectionState.done)
+                    return Text(
+                      "$firstname ${loggedInUser.email}",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 32.0,
+                          fontWeight: FontWeight.bold),
+                    );
+
+                  return Text('Loading data....Please wait');
                 },
               ),
               Expanded(

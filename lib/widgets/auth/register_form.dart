@@ -190,7 +190,7 @@ class _RegisterFormState extends State<RegisterForm> {
                           'lastname' : _lastName,
                           'uid' : authResult.user.uid,
                         });
-                        if(authResult !=null){
+                        if(authResult.user != null) {
                           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
                         }
                         setState(() {

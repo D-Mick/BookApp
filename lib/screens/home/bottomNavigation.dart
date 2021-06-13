@@ -1,11 +1,10 @@
-import 'package:book_app/animations/fadeAnimation.dart';
 import 'package:book_app/screens/home/audiobook_page.dart';
 import 'package:book_app/screens/home/ebook_page.dart';
 import 'package:book_app/screens/home/home_page.dart';
 import 'package:book_app/screens/home/profile_page.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 
 
 const colorBlack = Colors.black;
@@ -34,65 +33,67 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SizedBox.expand(
-        child: PageView(
-          controller: _pageController,
-          onPageChanged: (index) {
-            setState(() => _currentIndex = index);
-          },
-          children: <Widget>[
-            Container(
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        body: SizedBox.expand(
+          child: PageView(
+            controller: _pageController,
+            onPageChanged: (index) {
+              setState(() => _currentIndex = index);
+            },
+            children: <Widget>[
+              Container(
+                  color: Colors.white,
+                  child: HomeWidget(),
+              ),
+              Container(
                 color: Colors.white,
-                child: Ebook(),
+                child: EbookPage(),
+              ),
+              Container(
+                color: Colors.white,
+                child: AudioBookPage(),
+              ),
+              Container(
+                color: Colors.white,
+                child: ProfilePage(),
+              ),
+            ],
+          ),
+        ),
+        bottomNavigationBar: BottomNavyBar(
+          selectedIndex: _currentIndex,
+          animationDuration: Duration(milliseconds: 300),
+          onItemSelected: (index) {
+            _pageController.jumpToPage(index);
+          },
+          items: <BottomNavyBarItem>[
+            BottomNavyBarItem(
+                title: Text('Home'),
+                icon: Icon(Icons.home),
+                inactiveColor: colorIconInactive,
+                activeColor: colorBlack),
+            BottomNavyBarItem(
+              title: Text('E-books'),
+              icon: Icon(Icons.book),
+              activeColor: colorBlack,
+              inactiveColor: colorIconInactive,
             ),
-            Container(
-              color: Colors.white,
-              child: EbookPage(),
+            BottomNavyBarItem(
+              title: Text('Audiobooks'),
+              icon: Icon(Icons.audiotrack),
+              activeColor: colorBlack,
+              inactiveColor: colorIconInactive,
             ),
-            Container(
-              color: Colors.white,
-              child: AudioBookPage(),
-            ),
-            Container(
-              color: Colors.white,
-              child: ProfilePage(),
+            BottomNavyBarItem(
+              title: Text('Profile'),
+              icon: Icon(Icons.person),
+              activeColor: colorBlack,
+              inactiveColor: colorIconInactive,
             ),
           ],
         ),
-      ),
-      bottomNavigationBar: BottomNavyBar(
-        selectedIndex: _currentIndex,
-        animationDuration: Duration(milliseconds: 300),
-        onItemSelected: (index) {
-          setState(() => _currentIndex = index);
-          _pageController.jumpToPage(index);
-        },
-        items: <BottomNavyBarItem>[
-          BottomNavyBarItem(
-              title: Text('Home'),
-              icon: Icon(Icons.home),
-              inactiveColor: colorIconInactive,
-              activeColor: colorBlack),
-          BottomNavyBarItem(
-            title: Text('E-books'),
-            icon: Icon(Icons.book),
-            activeColor: colorBlack,
-            inactiveColor: colorIconInactive,
-          ),
-          BottomNavyBarItem(
-            title: Text('Audiobooks'),
-            icon: Icon(Icons.audiotrack),
-            activeColor: colorBlack,
-            inactiveColor: colorIconInactive,
-          ),
-          BottomNavyBarItem(
-            title: Text('Profile'),
-            icon: Icon(Icons.person),
-            activeColor: colorBlack,
-            inactiveColor: colorIconInactive,
-          ),
-        ],
       ),
     );
   }

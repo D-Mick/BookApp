@@ -7,7 +7,7 @@ import 'package:lottie/lottie.dart';
 String text1 = 'This is the app that allows you to discover and\nread ebooks and magazines';
 String text2 = 'Borrow and read free books,\naudiobooks, and magazines from\nyour Library using your phone or\ntablet.its easy to get.';
 
-class onBoardingPage extends StatelessWidget {
+class OnBoardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
