@@ -2,20 +2,22 @@ import 'package:book_app/screens/home/audiobook_page.dart';
 import 'package:book_app/screens/home/ebook_page.dart';
 import 'package:book_app/screens/home/home_page.dart';
 import 'package:book_app/screens/home/profile_page.dart';
+import 'package:book_app/viewmodels/homePage_viewmodel.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 
 
 const colorBlack = Colors.black;
 const colorIconInactive = Colors.grey;
 
-class HomePage extends StatefulWidget {
+class BottomNavigation extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _BottomNavigationState createState() => _BottomNavigationState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _BottomNavigationState extends State<BottomNavigation> {
   int _currentIndex = 0;
   PageController _pageController;
 
@@ -43,9 +45,12 @@ class _HomePageState extends State<HomePage> {
               setState(() => _currentIndex = index);
             },
             children: <Widget>[
-              Container(
-                  color: Colors.white,
-                  child: HomeWidget(),
+              ChangeNotifierProvider(
+                create: (_) => HomePageViewModel(),
+                child: Container(
+                    color: Colors.white,
+                    child: HomePage(),
+                ),
               ),
               Container(
                 color: Colors.white,

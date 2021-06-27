@@ -109,7 +109,7 @@ class _LoginFormState extends State<LoginForm> {
                       try{
                         final user = await _auth.signInWithEmailAndPassword(email: _email, password: _password);
                         if(user != null){
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => BottomNavigation()));
                         }
                         setState(() {
                           showSpinner = false;

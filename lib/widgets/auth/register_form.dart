@@ -15,7 +15,7 @@ class RegisterForm extends StatefulWidget {
 class _RegisterFormState extends State<RegisterForm> {
   final _formKey = GlobalKey<FormState>();
   final _auth = FirebaseAuth.instance;
-  final _firestore = Firestore.instance;
+  final _firestore = FirebaseFirestore.instance;
   var _firstName = '';
   var _lastName = '';
   var _email = '';
@@ -183,15 +183,15 @@ class _RegisterFormState extends State<RegisterForm> {
                         _formKey.currentState.save();
                       }
                       try{
-                        AuthResult authResult;
+                        UserCredential authResult;
                         authResult = await _auth.createUserWithEmailAndPassword(email: _email, password: _password);
-                        await _firestore.collection('users').document(authResult.user.uid).setData({
+                        await _firestore.collection('users').doc(authResult.user.uid).set({
                           'firstname':_firstName,
                           'lastname' : _lastName,
                           'uid' : authResult.user.uid,
                         });
                         if(authResult.user != null) {
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => BottomNavigation()));
                         }
                         setState(() {
                           showSpinner = false;

@@ -14,12 +14,11 @@ class _SplashState extends State<Splash> {
 
   Future<bool> isLoggedIn() async {
     var x = FirebaseAuth.instance;
-    if(await x.currentUser() != null) {
+    if(x.currentUser != null) {
       return true;
     }
     return false;
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +28,7 @@ class _SplashState extends State<Splash> {
         builder: (context, snapshot) {
           if(snapshot.connectionState == ConnectionState.done) {
             if(snapshot.data == true) {
-              return  HomePage();
+              return  BottomNavigation();
             } else {
               return OnBoardingPage();
             }

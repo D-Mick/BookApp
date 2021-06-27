@@ -11,9 +11,9 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   final _formkey = GlobalKey<FormState>();
-  final _fireStore = Firestore.instance;
+  final _fireStore = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
-  FirebaseUser loggedInUser;
+  User loggedInUser;
   String firstname = "john";
   String lastname = "doe";
 
@@ -25,14 +25,14 @@ class _ProfilePageState extends State<ProfilePage> {
 
   _getCurrentUser() async {
     try {
-      loggedInUser = await _auth.currentUser();
+      loggedInUser = await _auth.currentUser;
       if (loggedInUser != null) {
         var ds = await _fireStore
             .collection('users')
-            .document(loggedInUser.uid)
+            .doc(loggedInUser.uid)
             .get();
-        firstname = ds.data['firstname'];
-        lastname = ds.data['lastname'];
+        firstname = ds.data()['firstname'];
+        lastname = ds.data()['lastname'];
         print(firstname);
         print(lastname);
       }
@@ -77,11 +77,10 @@ class _ProfilePageState extends State<ProfilePage> {
               SizedBox(
                 height: 120,
               ),
-              UserImagePickerWidget(),
-              // CircleAvatar(
-              //   backgroundImage: AssetImage('assets/image/login.png'),
-              //   radius: 75,
-              // ),
+              CircleAvatar(
+                backgroundImage: AssetImage('assets/image/login.png'),
+                radius: 75,
+              ),
               SizedBox(
                 height: 15.0,
               ),
