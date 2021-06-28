@@ -44,4 +44,4 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-package:book_app/constant.dart
+lib/constant.dart
