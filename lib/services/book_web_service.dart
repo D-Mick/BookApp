@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:book_app/Model/book.dart';
 import 'package:http/http.dart' as http;
+import 'package:book_app/constant.dart';
 
 abstract class BookWebService {
   Future<List<Items>> searchBook(String query);
@@ -11,7 +12,6 @@ abstract class BookWebService {
 
 class BookWebServiceImpl implements BookWebService{
   String _baseUrl = "www.googleapis.com";
-  String apiKey = "AIzaSyCbpM766Dqpl1dMXWfgtAJ-DABsfvoqdQ4";
 
   @override
   Future<List<Items>> searchBook(String query) async {
