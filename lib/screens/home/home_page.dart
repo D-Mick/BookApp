@@ -52,64 +52,50 @@ class _HomePageState extends State<HomePage>  with AfterLayoutMixin{
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Consumer<HomePageViewModel>(
-        builder: (context, model, _) {
-          return SafeArea(
-            child: Container(
-              color: Colors.white,
-              child: Column(
-                children: [
-                  FutureBuilder(
-                    future: _getCurrentUser(),
-                    builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.done)
-                        return Padding(
-                          padding: const EdgeInsets.all(15.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                'Hey $firstname 👋',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold, fontSize: 25),
-                              ),
-                              CircleAvatar(
-                                backgroundImage:
-                                    AssetImage('assets/image/login.png'),
-                                radius: 25,
-                              )
-                            ],
-                          ),
-                        );
+      body: SingleChildScrollView(
+        child: Consumer<HomePageViewModel>(
+          builder: (context, model, _) {
+            return SafeArea(
+              child: Container(
+                color: Colors.white,
+                child: Column(
+                  children: [
+                    FutureBuilder(
+                      future: _getCurrentUser(),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState == ConnectionState.done)
+                          return Padding(
+                            padding: const EdgeInsets.all(15.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Hey $firstname 👋',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold, fontSize: 25),
+                                ),
+                                CircleAvatar(
+                                  backgroundImage:
+                                      AssetImage('assets/image/login.png'),
+                                  radius: 25,
+                                )
+                              ],
+                            ),
+                          );
 
-                      return Text('Loading data....Please wait');
-                    },
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(right: 20, top: 20),
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        "Popular books",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 22.0,
-                            fontWeight: FontWeight.bold),
-                      ),
+                        return Text('Loading data....Please wait');
+                      },
                     ),
-                  ),
-                  SizedBox(
-                    height: 15,
-                  ),
-                  _build(model),
-                ],
+                    SizedBox(
+                      height: 10,
+                    ),
+                    _build(model),
+                  ],
+                ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }

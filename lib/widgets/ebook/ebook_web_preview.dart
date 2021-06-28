@@ -25,7 +25,7 @@ class _EbookWebPreviewState extends State<EbookWebPreview> {
           title: Text("${this.widget.items.volumeInfo.title}"),
         ),
         body: WebView(
-          initialUrl: this.widget.items.volumeInfo.infoLink,
+          initialUrl: this.widget.items.volumeInfo.previewLink,
         ),
     );
   }
