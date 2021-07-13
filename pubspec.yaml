@@ -61,6 +61,7 @@ flutter:
     - assets/lottie/splash.json
     - assets/lottie/screen.json
     - assets/lottie/secondScreen.json
+    - assets/lottie/comingSoon.json
     - assets/image/welcome.png
     - assets/image/login.png
     - assets/image/home.png
