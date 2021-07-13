@@ -12,6 +12,8 @@ class EbookWebPreview extends StatefulWidget {
 }
 
 class _EbookWebPreviewState extends State<EbookWebPreview> {
+  
+
   @override
   void initState() {
     super.initState();
@@ -26,6 +28,7 @@ class _EbookWebPreviewState extends State<EbookWebPreview> {
         ),
         body: WebView(
           initialUrl: this.widget.items.volumeInfo.previewLink,
+          javascriptMode: JavascriptMode.unrestricted,
         ),
     );
   }
