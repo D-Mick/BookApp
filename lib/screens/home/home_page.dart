@@ -103,5 +103,7 @@ class _HomePageState extends State<HomePage>  with AfterLayoutMixin{
   @override
   void afterFirstLayout(BuildContext context) {
     Provider.of<HomePageViewModel>(context, listen: false).popularBooks();
+    Provider.of<HomePageViewModel>(context, listen: false).mathBooks();
+    Provider.of<HomePageViewModel>(context, listen: false).englishBooks();
   }
 }

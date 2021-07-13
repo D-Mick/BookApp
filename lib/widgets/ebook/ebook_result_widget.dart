@@ -46,13 +46,16 @@ class EbookResultWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: Image.network(
-                        book.volumeInfo.imageLinks.smallThumbnail,
-                        height: 170,
-                        width: 170,
-                        fit: BoxFit.fill,
+                    Card(
+                      elevation: 4,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(20),
+                        child: Image.network(
+                          book.volumeInfo.imageLinks.smallThumbnail,
+                          height: 170,
+                          width: 170,
+                          fit: BoxFit.fill,
+                        ),
                       ),
                     ),
                     Expanded(

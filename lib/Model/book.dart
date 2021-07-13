@@ -7,6 +7,8 @@ import 'dart:convert';
 import 'package:book_app/Model/search_info.dart';
 import 'package:book_app/Model/volume_info.dart';
 
+import 'accessInfo.dart';
+
 List<Items> itemsFromJson(String str) => List<Items>.from(json.decode(str).map((x) => Items.fromJson(x)));
 
 class Items {
@@ -17,6 +19,7 @@ class Items {
     this.selfLink,
     this.volumeInfo,
     this.searchInfo,
+    this.accessInfo,
   });
 
   String kind;
@@ -25,6 +28,7 @@ class Items {
   String selfLink;
   VolumeInfo volumeInfo;
   SearchInfo searchInfo;
+  AccessInfo accessInfo;
 
   factory Items.fromJson(Map<String, dynamic> json) => Items(
     kind: json["kind"] == null ? null : json["kind"],
@@ -33,6 +37,7 @@ class Items {
     selfLink: json["selfLink"] == null ? null : json["selfLink"],
     volumeInfo: json["volumeInfo"] == null ? null : VolumeInfo.fromJson(json["volumeInfo"]),
     searchInfo: json["searchInfo"] == null ? null : SearchInfo.fromJson(json["searchInfo"]),
+    accessInfo: json["accessInfo"] == null ? null : AccessInfo.fromJson(json["accessInfo"])
   );
 }
 
